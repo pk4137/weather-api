@@ -117,35 +117,12 @@ def makeWebhookResult(data):
         ]
     }
 
-    facebook_message = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [
-                    {
-                        "title": channel.get('title'),
-                        "image_url": "http://l.yimg.com/a/i/us/we/52/" + condition.get('code') + ".gif",
-                        "subtitle": speech,
-                        "buttons": [
-                            {
-                                "type": "web_url",
-                                "url": channel.get('link'),
-                                "title": "View Details"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
-    }
-
     print(json.dumps(slack_message))
 
     return {
         "speech": speech,
         "displayText": speech,
-        "data": {"slack": slack_message, "facebook": facebook_message},
+        "data": {"slack": slack_message},
         "contextOut": [{"name":"weather", "lifespan":2}],
         "source": "apiai-weather-webhook-sample"
     }
