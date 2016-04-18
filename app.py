@@ -123,7 +123,7 @@ def makeWebhookResult(data):
         "speech": speech,
         "displayText": speech,
         "data": {"slack": slack_message},
-        "contextOut": [{"name":"weather", "lifespan":2}],
+        "contextOut": [{"name":"weather", "lifespan":2, "parameters":{}}],
         "source": "apiai-weather-webhook-sample"
     }
 
